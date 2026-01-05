@@ -1,0 +1,8 @@
+syntax = "proto3";
+
+message MapManifest {
+  string name = 1;
+  string gameVersionName = 2;
+  int64 gameVersionNumber = 3;
+  int64 seed = 4;
+};
