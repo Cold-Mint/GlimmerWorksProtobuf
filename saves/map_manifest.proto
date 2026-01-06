@@ -5,4 +5,7 @@ message MapManifestMessage {
   string gameVersionName = 2;
   uint32 gameVersionNumber = 3;
   int32 seed = 4;
+  int64 createTime = 5;
+  int64 lastPlayedTime = 6;
+  int64 totalPlayTime = 7;
 };
