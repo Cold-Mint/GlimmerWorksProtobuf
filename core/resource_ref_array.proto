@@ -1,0 +1,5 @@
+syntax = "proto3";
+import "core/resource_ref.proto";
+message ResourceRefMessageArray {
+  repeated ResourceRefMessage tileResourceRef = 1;
+}

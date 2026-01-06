@@ -1,5 +1,8 @@
 syntax = "proto3";
 import "saves/vector2d.proto";
+import "saves/tile_layer_type.proto";
+import "core/resource_ref_array.proto";
 message ChunkMessage {
-  TileVector2DMessage position = 1;
+  Vector2DIMessage position = 1;
+  map<int32, ResourceRefMessageArray> tiles = 2;
 }

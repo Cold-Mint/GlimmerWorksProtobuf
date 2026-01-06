@@ -1,0 +1,7 @@
+syntax = "proto3";
+
+message ResourceRefMessage {
+  string packId = 1;
+  uint32  resourceType = 2;
+  string  resourceKey = 3;
+}
