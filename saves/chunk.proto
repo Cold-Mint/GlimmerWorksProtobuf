@@ -1,5 +1,5 @@
 syntax = "proto3";
 import "saves/vector2d.proto";
-message Chunk {
-  TileVector2D position = 1;
+message ChunkMessage {
+  TileVector2DMessage position = 1;
 }

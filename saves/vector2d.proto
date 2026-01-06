@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-message TileVector2D{
+message TileVector2DMessage{
   float x = 1;
   float y = 2;
 }

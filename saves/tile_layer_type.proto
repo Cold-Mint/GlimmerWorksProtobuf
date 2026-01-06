@@ -1,5 +1,5 @@
 syntax = "proto3";
-enum TileLayerType{
+enum TileLayerTypeMessage{
   /**
        * Main
        * 主要的瓦片层
