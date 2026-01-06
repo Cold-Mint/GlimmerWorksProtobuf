@@ -3,6 +3,6 @@ syntax = "proto3";
 message MapManifestMessage {
   string name = 1;
   string gameVersionName = 2;
-  int64 gameVersionNumber = 3;
-  int64 seed = 4;
+  uint32 gameVersionNumber = 3;
+  int32 seed = 4;
 };
