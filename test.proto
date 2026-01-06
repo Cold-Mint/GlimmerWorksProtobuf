@@ -1,0 +1,6 @@
+syntax = "proto3";
+
+message HelloTestMessage {
+  string name = 1;
+  int64 age = 2;
+};
