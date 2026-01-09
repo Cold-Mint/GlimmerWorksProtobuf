@@ -7,7 +7,7 @@ file(GLOB_RECURSE PROTO_FILES
     "${CMAKE_CURRENT_SOURCE_DIR}/src/*.proto"
 )
 
-set(PROTO_OUTPUT_DIR "${CMAKE_CURRENT_BINARY_DIR}/generated")
+set(PROTO_OUTPUT_DIR "${CMAKE_BINARY_DIR}/generated")
 file(MAKE_DIRECTORY ${PROTO_OUTPUT_DIR})
 
 include(FetchContent)
@@ -24,7 +24,7 @@ set(protobuf_BUILD_PROTOBUF_BINARIES ON CACHE BOOL "" FORCE)
 FetchContent_MakeAvailable(pb)
 
 add_library(GlimmerWorksProto)
-include("${CMAKE_CURRENT_BINARY_DIR}/_deps/pb-build/cmake/protobuf/protobuf-generate.cmake")
+include("${CMAKE_BINARY_DIR}/_deps/pb-build/cmake/protobuf/protobuf-generate.cmake")
 protobuf_generate(
     TARGET GlimmerWorksProto
     LANGUAGE cpp
