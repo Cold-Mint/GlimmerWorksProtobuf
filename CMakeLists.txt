@@ -1,8 +1,6 @@
 cmake_minimum_required(VERSION 3.28)
-project(GlimmerWorksProtobuf)
-
-find_package(Protobuf REQUIRED)
-
+project(GlimmerWorksProto)
+include("versions.cmake")
 #Recursively scan all proto files.
 #递归扫描所有的proto文件。
 file(GLOB_RECURSE PROTO_FILES
@@ -12,25 +10,38 @@ file(GLOB_RECURSE PROTO_FILES
 set(PROTO_OUTPUT_DIR "${CMAKE_CURRENT_BINARY_DIR}/generated")
 file(MAKE_DIRECTORY ${PROTO_OUTPUT_DIR})
 
-add_library(glimmerworks_proto)
+include(FetchContent)
+FetchContent_Declare(
+        googleProtobuf
+        GIT_REPOSITORY "https://github.com/protocolbuffers/protobuf"
+        GIT_TAG ${PROTOCOLBUFFERS_PROTOBUF_VERSION}
+        GIT_PROGRESS TRUE
+)
+FetchContent_MakeAvailable(googleProtobuf)
 
-foreach(proto_file IN LISTS PROTO_FILES)
-    file(RELATIVE_PATH rel_path "${CMAKE_CURRENT_SOURCE_DIR}" "${proto_file}")
-    get_filename_component(proto_dir "${rel_path}" DIRECTORY)
+add_library(GlimmerWorksProto)
 
-    protobuf_generate(
-        TARGET glimmerworks_proto
-        LANGUAGE cpp
-        PROTOS "${proto_file}"
-        IMPORT_DIRS "${PROTO_OUTPUT_DIR}"
-        PROTOC_OUT_DIR "${PROTO_OUTPUT_DIR}"
-    )
-endforeach()
+set(protobuf_BUILD_TESTS OFF CACHE BOOL "" FORCE)
+set(protobuf_BUILD_CSHARP OFF CACHE BOOL "" FORCE)
+set(protobuf_BUILD_PYTHON OFF CACHE BOOL "" FORCE)
+set(protobuf_BUILD_PROTOBUF_BINARIES ON CACHE BOOL "" FORCE)
+# Generate proto code
+protobuf_generate(
+    TARGET GlimmerWorksProto
+    LANGUAGE cpp
+    PROTOS ${PROTO_FILES}
+    IMPORT_DIRS "${CMAKE_CURRENT_SOURCE_DIR}"
+    PROTOC_OUT_DIR "${PROTO_OUTPUT_DIR}"
+)
 
-target_link_libraries(glimmerworks_proto
+target_link_libraries(GlimmerWorksProto
     PUBLIC protobuf::libprotobuf
 )
 
-target_include_directories(glimmerworks_proto
+target_include_directories(GlimmerWorksProto
     PUBLIC ${PROTO_OUTPUT_DIR}
 )
+
+#Export aliases externally.
+#对外导出别名。
+add_library(glimmerworks::proto ALIAS GlimmerWorksProto)
