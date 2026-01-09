@@ -4,7 +4,7 @@ include("versions.cmake")
 #Recursively scan all proto files.
 #递归扫描所有的proto文件。
 file(GLOB_RECURSE PROTO_FILES
-    "${CMAKE_CURRENT_SOURCE_DIR}/*.proto"
+    "${CMAKE_CURRENT_SOURCE_DIR}/src/*.proto"
 )
 
 set(PROTO_OUTPUT_DIR "${CMAKE_CURRENT_BINARY_DIR}/generated")
@@ -12,20 +12,19 @@ file(MAKE_DIRECTORY ${PROTO_OUTPUT_DIR})
 
 include(FetchContent)
 FetchContent_Declare(
-        googleProtobuf
+        pb
         GIT_REPOSITORY "https://github.com/protocolbuffers/protobuf"
         GIT_TAG ${PROTOCOLBUFFERS_PROTOBUF_VERSION}
         GIT_PROGRESS TRUE
 )
-FetchContent_MakeAvailable(googleProtobuf)
-
-add_library(GlimmerWorksProto)
-
 set(protobuf_BUILD_TESTS OFF CACHE BOOL "" FORCE)
 set(protobuf_BUILD_CSHARP OFF CACHE BOOL "" FORCE)
 set(protobuf_BUILD_PYTHON OFF CACHE BOOL "" FORCE)
 set(protobuf_BUILD_PROTOBUF_BINARIES ON CACHE BOOL "" FORCE)
-# Generate proto code
+FetchContent_MakeAvailable(pb)
+
+add_library(GlimmerWorksProto)
+include("${CMAKE_CURRENT_BINARY_DIR}/_deps/pb-build/cmake/protobuf/protobuf-generate.cmake")
 protobuf_generate(
     TARGET GlimmerWorksProto
     LANGUAGE cpp

@@ -1,6 +1,6 @@
 syntax = "proto3";
-import "saves/vector2d.proto";
-import "core/resource_ref_array.proto";
+import "src/saves/vector2d.proto";
+import "src/core/resource_ref_array.proto";
 message ChunkMessage {
   Vector2DIMessage position = 1;
   map<int32, ResourceRefMessageArray> tiles = 2;
