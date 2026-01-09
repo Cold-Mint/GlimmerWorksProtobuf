@@ -1,5 +1,5 @@
 syntax = "proto3";
 import "core/resource_ref.proto";
 message ItemContainerMessage {
-  repeated ResourceRefMessage tileResourceRef = 1;
+  repeated ResourceRefMessage itemResourceRef = 1;
 }
