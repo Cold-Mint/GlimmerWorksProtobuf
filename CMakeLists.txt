@@ -21,8 +21,6 @@ set(protobuf_BUILD_TESTS OFF CACHE BOOL "" FORCE)
 set(protobuf_BUILD_CSHARP OFF CACHE BOOL "" FORCE)
 set(protobuf_BUILD_PYTHON OFF CACHE BOOL "" FORCE)
 set(protobuf_BUILD_PROTOBUF_BINARIES ON CACHE BOOL "" FORCE)
-set(utf8_range_INSTALL OFF CACHE BOOL "" FORCE)
-set(absl_INSTALL OFF CACHE BOOL "" FORCE)
 FetchContent_MakeAvailable(pb)
 
 add_library(GlimmerWorksProto)
