@@ -24,7 +24,7 @@ set(protobuf_BUILD_PROTOBUF_BINARIES ON CACHE BOOL "" FORCE)
 FetchContent_MakeAvailable(pb)
 
 add_library(GlimmerWorksProto)
-include("${CMAKE_BINARY_DIR}/_deps/pb-build/cmake/protobuf/protobuf-generate.cmake")
+include("${CMAKE_BINARY_DIR}/_deps/pb-src/cmake/protobuf-generate.cmake")
 protobuf_generate(
     TARGET GlimmerWorksProto
     LANGUAGE cpp
