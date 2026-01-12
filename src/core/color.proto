@@ -1,0 +1,7 @@
+syntax = "proto3";
+message ColorMessage{
+  uint32 a = 1;
+  uint32 r = 2;
+  uint32 g = 3;
+  uint32 b = 4;
+}

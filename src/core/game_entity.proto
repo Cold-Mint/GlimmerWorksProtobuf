@@ -1,0 +1,4 @@
+syntax = "proto3";
+message GameEntityMessage{
+  uint32 id = 1;
+}

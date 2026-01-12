@@ -1,0 +1,7 @@
+syntax = "proto3";
+import "src/core/resource_ref.proto";
+message DroppedItemMessage{
+  ResourceRefMessage item = 1;
+  float  remainingTime = 2;
+  float  pickupCooldown = 3;
+}

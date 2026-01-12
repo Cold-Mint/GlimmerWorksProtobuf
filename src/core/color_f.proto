@@ -1,0 +1,7 @@
+syntax = "proto3";
+message ColorFMessage{
+  float  a = 1;
+  float  r = 2;
+  float  g = 3;
+  float  b = 4;
+}

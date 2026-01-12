@@ -1,0 +1,6 @@
+syntax = "proto3";
+import "src/core/vector2d.proto";
+message transform2d {
+  Vector2D position = 1;
+  float rotation = 2;
+}

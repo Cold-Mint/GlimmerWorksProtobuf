@@ -1,5 +1,5 @@
 syntax = "proto3";
-import "src/saves/vector2d.proto";
+import "src/core/vector2di.proto";
 import "src/core/resource_ref_array.proto";
 message ChunkMessage {
   Vector2DIMessage position = 1;

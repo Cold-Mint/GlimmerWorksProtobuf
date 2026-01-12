@@ -1,0 +1,5 @@
+syntax = "proto3";
+message MagneticMessage{
+  uint32 type = 1;
+}
+
