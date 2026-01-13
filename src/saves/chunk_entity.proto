@@ -1,0 +1,5 @@
+syntax = "proto3";
+import "src/saves/entity_item.proto";
+message ChunkEntityMessage {
+  repeated EntityItemMessage entitys = 1;
+}
