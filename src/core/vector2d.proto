@@ -1,5 +1,6 @@
 syntax = "proto3";
-message Vector2D{
+
+message Vector2DMessage{
   float x = 1;
   float y = 2;
 }
