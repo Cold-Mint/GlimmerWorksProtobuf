@@ -8,4 +8,5 @@ message MapManifestMessage {
   int64 createTime = 5;
   int64 lastPlayedTime = 6;
   int64 totalPlayTime = 7;
+  uint32 entityIDIndex = 8;
 };
