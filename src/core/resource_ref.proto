@@ -1,7 +1,8 @@
 syntax = "proto3";
-
+import "src/core/resource_ref_arg.proto";
 message ResourceRefMessage {
   string packId = 1;
   uint32  resourceType = 2;
   string  resourceKey = 3;
+  repeated ResourceRefArgMessage args = 4;
 }

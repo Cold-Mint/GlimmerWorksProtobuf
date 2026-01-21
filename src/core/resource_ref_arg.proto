@@ -1,0 +1,7 @@
+syntax = "proto3";
+
+message ResourceRefArgMessage {
+  string name = 1;
+  int32 argType = 2;
+  bytes data = 3;
+}
