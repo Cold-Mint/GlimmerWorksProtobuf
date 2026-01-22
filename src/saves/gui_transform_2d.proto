@@ -1,0 +1,6 @@
+syntax = "proto3";
+import "src/core/vector2d.proto";
+message GuiTransform2dMessage {
+  Vector2DMessage position = 1;
+  Vector2DMessage size = 2;
+}
