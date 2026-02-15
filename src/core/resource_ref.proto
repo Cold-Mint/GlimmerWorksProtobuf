@@ -5,4 +5,5 @@ message ResourceRefMessage {
   uint32  resourceType = 2;
   string  resourceKey = 3;
   repeated ResourceRefArgMessage args = 4;
+  string selfPackageId = 5;
 }
