@@ -8,7 +8,7 @@ file(GLOB_RECURSE PROTO_FILES
 set(PROTO_OUTPUT_DIR "${CMAKE_BINARY_DIR}/generated")
 file(MAKE_DIRECTORY ${PROTO_OUTPUT_DIR})
 
-find_package(Protobuf REQUIRED CONFIG)
+find_package(Protobuf REQUIRED)
 
 add_library(GlimmerWorksProto)
 
