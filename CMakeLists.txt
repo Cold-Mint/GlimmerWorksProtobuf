@@ -1,6 +1,5 @@
-cmake_minimum_required(VERSION 3.28)
+cmake_minimum_required(VERSION 4.2.3)
 project(GlimmerWorksProto)
-include("versions.cmake")
 
 file(GLOB_RECURSE PROTO_FILES
     "${CMAKE_CURRENT_SOURCE_DIR}/src/*.proto"
@@ -8,7 +7,9 @@ file(GLOB_RECURSE PROTO_FILES
 
 set(PROTO_OUTPUT_DIR "${CMAKE_BINARY_DIR}/generated")
 file(MAKE_DIRECTORY ${PROTO_OUTPUT_DIR})
-find_package(Protobuf ${PROTOCOLBUFFERS_PROTOBUF_VERSION} REQUIRED CONFIG)
+
+find_package(Protobuf REQUIRED CONFIG)
+
 add_library(GlimmerWorksProto)
 
 protobuf_generate(
@@ -28,4 +29,3 @@ target_include_directories(GlimmerWorksProto
 )
 
 add_library(glimmerworks::proto ALIAS GlimmerWorksProto)
-
