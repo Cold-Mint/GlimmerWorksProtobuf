@@ -1,5 +1,9 @@
 cmake_minimum_required(VERSION 4.2.3)
 project(GlimmerWorksProto)
+if (ANDROID)
+include("versions.cmake")
+include(FetchContent)
+endif ()
 file(GLOB_RECURSE PROTO_FILES
     "${CMAKE_CURRENT_SOURCE_DIR}/src/*.proto"
 )
@@ -8,25 +12,22 @@ set(PROTO_OUTPUT_DIR "${CMAKE_BINARY_DIR}/generated")
 file(MAKE_DIRECTORY ${PROTO_OUTPUT_DIR})
 
 if (ANDROID)
-include("versions.cmake")
-include(FetchContent)
-	FetchContent_Declare(
-	        pb
-	        GIT_REPOSITORY "https://github.com/protocolbuffers/protobuf"
-	        GIT_TAG ${PROTOCOLBUFFERS_PROTOBUF_VERSION}
-	        GIT_PROGRESS TRUE
-	)
+FetchContent_Declare(
+        pb
+        GIT_REPOSITORY "https://github.com/protocolbuffers/protobuf"
+        GIT_TAG ${PROTOCOLBUFFERS_PROTOBUF_VERSION}
+        GIT_PROGRESS TRUE
+)
+endif ()
 set(protobuf_BUILD_TESTS OFF CACHE BOOL "" FORCE)
 set(protobuf_BUILD_CSHARP OFF CACHE BOOL "" FORCE)
 set(protobuf_BUILD_PYTHON OFF CACHE BOOL "" FORCE)
 set(protobuf_BUILD_PROTOBUF_BINARIES ON CACHE BOOL "" FORCE)
-FetchContent_MakeAvailable(pb)
-else ()
+if (ANDROID)
+    FetchContent_MakeAvailable(pb)
+else()
     find_package(Protobuf REQUIRED)
 endif ()
-
-
-
 
 add_library(GlimmerWorksProto)
 if (ANDROID)
