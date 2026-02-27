@@ -21,7 +21,6 @@ set(protobuf_BUILD_CSHARP OFF CACHE BOOL "" FORCE)
 set(protobuf_BUILD_PYTHON OFF CACHE BOOL "" FORCE)
 set(protobuf_BUILD_PROTOBUF_BINARIES ON CACHE BOOL "" FORCE)
 FetchContent_MakeAvailable(pb)
-include("${CMAKE_BINARY_DIR}/_deps/pb-src/cmake/protobuf-generate.cmake")
 else ()
     find_package(Protobuf REQUIRED)
 endif ()
@@ -30,7 +29,9 @@ endif ()
 
 
 add_library(GlimmerWorksProto)
-
+if (ANDROID)
+include("${CMAKE_BINARY_DIR}/_deps/pb-src/cmake/protobuf-generate.cmake")
+endif ()
 protobuf_generate(
     TARGET GlimmerWorksProto
     LANGUAGE cpp
