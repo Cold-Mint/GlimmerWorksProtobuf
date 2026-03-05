@@ -5,7 +5,7 @@ message RigidBody2dMessage {
   uint64  categoryBits = 1;
   uint64 maskBits = 2;
   BodyTypeMessage type = 3;
-  bool enableSleep = 4;
+  bool allowSleep = 4;
   uint32  width = 5;
   uint32  height = 6;
   bool  fixedRotation = 7;
