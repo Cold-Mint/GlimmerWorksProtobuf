@@ -1,5 +1,5 @@
 syntax = "proto3";
-import "src/saves/body_type.proto";
+import "src/core/body_type.proto";
 
 message RigidBody2dMessage {
   uint64  categoryBits = 1;

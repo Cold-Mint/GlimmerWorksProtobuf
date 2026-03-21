@@ -1,0 +1,7 @@
+syntax = "proto3";
+
+import "src/core/resource_ref.proto";
+message ItemMessage {
+  repeated ResourceRefMessage itemResourceRef = 1;
+  uint64 amount = 2;
+}
