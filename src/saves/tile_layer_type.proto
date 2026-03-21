@@ -1,23 +1,8 @@
 syntax = "proto3";
 enum TileLayerTypeMessage{
   /**
-       * Main
-       * 主要的瓦片层
-       */
+  Main
+  主要的瓦片层
+   */
   Main = 0;
-  /**
-   * Wire
-   * 电线层
-   */
-  Wire = 1;
-  /**
-   * WaterPipe
-   * 水管
-   */
-  WaterPipe = 2;
-  /**
-   * SignalLine
-   * 信号线
-   */
-  SignalLine = 3;
 }
