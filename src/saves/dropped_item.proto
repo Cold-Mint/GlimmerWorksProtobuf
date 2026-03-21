@@ -1,5 +1,4 @@
 syntax = "proto3";
-import "src/core/resource_ref.proto";
 import "src/saves/item.proto";
 message DroppedItemMessage{
   ItemMessage item = 1;
