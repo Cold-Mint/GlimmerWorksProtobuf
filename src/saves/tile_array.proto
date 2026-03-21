@@ -1,0 +1,5 @@
+syntax = "proto3";
+import "src/saves/tile.proto";
+message TileArrayMessage {
+  repeated TileMessage tileMessage = 1;
+}

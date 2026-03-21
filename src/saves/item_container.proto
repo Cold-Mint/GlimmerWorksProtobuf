@@ -1,5 +1,5 @@
 syntax = "proto3";
-import "src/core/resource_ref.proto";
+import "src/saves/item.proto";
 message ItemContainerMessage {
-  repeated ResourceRefMessage itemResourceRef = 1;
+  repeated ItemMessage itemResourceRef = 1;
 }

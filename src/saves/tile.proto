@@ -1,0 +1,6 @@
+syntax = "proto3";
+import "src/core/resource_ref.proto";
+message TileMessage {
+  ResourceRefMessage resourceRef = 1;
+  bool isPlayerPlaced = 2;
+}
