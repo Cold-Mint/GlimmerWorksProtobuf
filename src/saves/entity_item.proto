@@ -7,7 +7,4 @@ message EntityItemMessage{
   GameEntityMessage gameEntity = 1;
   repeated ComponentMessage components = 2;
   ResourceRefMessage resourceRef = 3;
-  //position
-  //位置
-  Vector2DMessage position = 4;
 }
