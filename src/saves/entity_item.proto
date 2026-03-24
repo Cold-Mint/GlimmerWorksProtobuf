@@ -2,7 +2,6 @@ syntax = "proto3";
 import "src/core/game_entity.proto";
 import "src/saves/component.proto";
 import "src/core/resource_ref.proto";
-import "src/core/vector2d.proto";
 message EntityItemMessage{
   GameEntityMessage gameEntity = 1;
   repeated ComponentMessage components = 2;

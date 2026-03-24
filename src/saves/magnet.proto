@@ -1,7 +1,0 @@
-syntax = "proto3";
-
-message MagnetMessage{
-  float  adsorptionRadius = 1;
-  float  detectionRadius = 2;
-  uint32  type = 3;
-}

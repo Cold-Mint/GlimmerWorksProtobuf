@@ -1,7 +1,0 @@
-syntax = "proto3";
-
-message ResourceRefArgMessage {
-  string name = 1;
-  uint32 argType = 2;
-  bytes data = 3;
-}
