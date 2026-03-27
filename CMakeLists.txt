@@ -24,9 +24,7 @@ set(protobuf_BUILD_LIBPROTOBUF_LITE ON CACHE BOOL "" FORCE)  # 启用 Lite
 FetchContent_MakeAvailable(pb)
 
 add_library(GlimmerWorksProto)
-if (ANDROID)
-    include("${CMAKE_BINARY_DIR}/_deps/pb-src/cmake/protobuf-generate.cmake")
-endif ()
+include("${CMAKE_BINARY_DIR}/_deps/pb-src/cmake/protobuf-generate.cmake")
 protobuf_generate(
         TARGET GlimmerWorksProto
         LANGUAGE cpp
