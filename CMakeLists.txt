@@ -26,7 +26,6 @@ protobuf_generate(
         PROTOS ${PROTO_FILES}
         IMPORT_DIRS "${CMAKE_CURRENT_SOURCE_DIR}"
         PROTOC_OUT_DIR "${PROTO_OUTPUT_DIR}"
-        LITE_MODE ON
 )
 
 target_link_libraries(GlimmerWorksProto
