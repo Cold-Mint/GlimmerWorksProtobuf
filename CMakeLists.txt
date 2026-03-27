@@ -9,14 +9,12 @@ file(GLOB_RECURSE PROTO_FILES
 set(PROTO_OUTPUT_DIR "${CMAKE_BINARY_DIR}/generated")
 file(MAKE_DIRECTORY ${PROTO_OUTPUT_DIR})
 
-if (ANDROID)
     FetchContent_Declare(
             pb
             GIT_REPOSITORY "https://github.com/protocolbuffers/protobuf"
             GIT_TAG ${PROTOCOLBUFFERS_PROTOBUF_VERSION}
             GIT_PROGRESS TRUE
-    )
-endif ()
+)
 set(protobuf_BUILD_TESTS OFF CACHE BOOL "" FORCE)
 set(protobuf_BUILD_CSHARP OFF CACHE BOOL "" FORCE)
 set(protobuf_BUILD_PYTHON OFF CACHE BOOL "" FORCE)
