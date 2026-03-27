@@ -1,4 +1,5 @@
 syntax = "proto3";
+option optimize_for = LITE_RUNTIME;
 import "src/core/vector2d.proto";
 message Transform2dMessage {
   Vector2DMessage position = 1;

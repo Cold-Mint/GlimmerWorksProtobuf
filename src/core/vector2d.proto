@@ -1,5 +1,5 @@
 syntax = "proto3";
-
+option optimize_for = LITE_RUNTIME;
 message Vector2DMessage{
   float x = 1;
   float y = 2;

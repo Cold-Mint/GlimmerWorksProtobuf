@@ -1,4 +1,5 @@
 syntax = "proto3";
+option optimize_for = LITE_RUNTIME;
 import "src/saves/entity_item.proto";
 message PlayerMessage{
   EntityItemMessage entity = 1;

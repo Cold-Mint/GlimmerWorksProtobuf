@@ -1,5 +1,5 @@
 syntax = "proto3";
-
+option optimize_for = LITE_RUNTIME;
 message ComponentMessage{
   uint32 id = 1;
   bytes data = 2;

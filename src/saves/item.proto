@@ -1,5 +1,5 @@
 syntax = "proto3";
-
+option optimize_for = LITE_RUNTIME;
 import "src/core/resource_ref.proto";
 message ItemMessage {
   ResourceRefMessage itemResourceRef = 1;

@@ -1,4 +1,5 @@
 syntax = "proto3";
+option optimize_for = LITE_RUNTIME;
 import "src/core/game_entity.proto";
 import "src/saves/component.proto";
 import "src/core/resource_ref.proto";

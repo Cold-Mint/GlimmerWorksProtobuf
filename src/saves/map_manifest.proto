@@ -1,5 +1,5 @@
 syntax = "proto3";
-
+option optimize_for = LITE_RUNTIME;
 message MapManifestMessage {
   string name = 1;
   string gameVersionName = 2;

@@ -1,4 +1,5 @@
 syntax = "proto3";
+option optimize_for = LITE_RUNTIME;
 message ColorFMessage{
   float  a = 1;
   float  r = 2;
