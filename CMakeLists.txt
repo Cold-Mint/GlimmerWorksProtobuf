@@ -9,22 +9,28 @@ file(GLOB_RECURSE PROTO_FILES
 set(PROTO_OUTPUT_DIR "${CMAKE_BINARY_DIR}/generated")
 file(MAKE_DIRECTORY ${PROTO_OUTPUT_DIR})
 
-    FetchContent_Declare(
-            pb
-            GIT_REPOSITORY "https://github.com/protocolbuffers/protobuf"
-            GIT_TAG ${PROTOCOLBUFFERS_PROTOBUF_VERSION}
-            GIT_PROGRESS TRUE
+FetchContent_Declare(
+    protobuf
+    GIT_REPOSITORY "https://github.com/protocolbuffers/protobuf"
+    GIT_TAG ${PROTOCOLBUFFERS_PROTOBUF_VERSION}
+    GIT_PROGRESS TRUE
 )
 set(protobuf_BUILD_TESTS OFF CACHE BOOL "" FORCE)
+set(protobuf_BUILD_CONFORMANCE OFF CACHE BOOL "" FORCE)
+set(protobuf_BUILD_EXAMPLES OFF CACHE BOOL "" FORCE)
 set(protobuf_BUILD_CSHARP OFF CACHE BOOL "" FORCE)
 set(protobuf_BUILD_PYTHON OFF CACHE BOOL "" FORCE)
-set(protobuf_BUILD_PROTOBUF_BINARIES ON CACHE BOOL "" FORCE)
-set(protobuf_BUILD_LIBPROTOPBUF OFF CACHE BOOL "" FORCE)  # 关闭完整版
-set(protobuf_BUILD_LIBPROTOBUF_LITE ON CACHE BOOL "" FORCE)  # 启用 Lite
-FetchContent_MakeAvailable(pb)
+set(protobuf_BUILD_JAVA OFF CACHE BOOL "" FORCE)
+set(protobuf_BUILD_LIBUPB OFF CACHE BOOL "" FORCE) 
+set(protobuf_BUILD_LIBPROTOBUF OFF CACHE BOOL "" FORCE)
+set(protobuf_BUILD_LIBPROTOBUF_LITE ON CACHE BOOL "" FORCE)
+set(protobuf_BUILD_PROTOC_BINARIES OFF CACHE BOOL "" FORCE)
+set(protobuf_BUILD_LIBPROTOC OFF CACHE BOOL "" FORCE)
+
+FetchContent_MakeAvailable(protobuf)
 
 add_library(GlimmerWorksProto)
-include("${CMAKE_BINARY_DIR}/_deps/pb-src/cmake/protobuf-generate.cmake")
+include("${CMAKE_BINARY_DIR}/_deps/protobuf-src/cmake/protobuf-generate.cmake")
 protobuf_generate(
         TARGET GlimmerWorksProto
         LANGUAGE cpp
