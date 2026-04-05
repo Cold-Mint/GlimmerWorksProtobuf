@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 4.2.3)
 project(GlimmerWorksProto)
-include("versions.cmake")
+include("../../../versions.cmake")
 include(FetchContent)
 file(GLOB_RECURSE PROTO_FILES
         "${CMAKE_CURRENT_SOURCE_DIR}/src/*.proto"
