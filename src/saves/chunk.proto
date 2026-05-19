@@ -1,8 +1,8 @@
 syntax = "proto3";
 option optimize_for = LITE_RUNTIME;
 import "src/core/vector2di.proto";
-import "src/saves/tile_array.proto";
+import "src/saves/tile_state_array.proto";
 message ChunkMessage {
   Vector2DIMessage position = 1;
-  map<int32, TileArrayMessage> tiles = 2;
+  map<int32, TileStateArrayMessage> tileStates = 2;
 }

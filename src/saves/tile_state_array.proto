@@ -1,0 +1,7 @@
+syntax = "proto3";
+option optimize_for = LITE_RUNTIME;
+import "src/saves/tile_state.proto";
+
+message TileStateArrayMessage {
+  repeated TileStateMessage tileStateMessage = 1;
+}

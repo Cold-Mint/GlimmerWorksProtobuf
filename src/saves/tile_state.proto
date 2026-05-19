@@ -1,0 +1,12 @@
+syntax = "proto3";
+option optimize_for = LITE_RUNTIME;
+import "src/core/resource_ref.proto";
+
+/**
+Single-grid independent operation state (data not saved in the tile sharing instance)
+单格独立运行状态（数据不保存在瓦片共享实例内）
+*/
+message TileStateMessage {
+  ResourceRefMessage resourceRef = 1;
+  bool isPlayerPlaced = 2;
+}

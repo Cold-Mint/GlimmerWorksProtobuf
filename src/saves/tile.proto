@@ -1,7 +1,0 @@
-syntax = "proto3";
-option optimize_for = LITE_RUNTIME;
-import "src/core/resource_ref.proto";
-message TileMessage {
-  ResourceRefMessage resourceRef = 1;
-  bool isPlayerPlaced = 2;
-}
