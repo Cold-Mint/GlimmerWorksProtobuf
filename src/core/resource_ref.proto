@@ -1,8 +1,9 @@
 syntax = "proto3";
 option optimize_for = LITE_RUNTIME;
+import "src/core/resource_type.proto";
 message ResourceRefMessage {
   string packId = 1;
-  uint32  resourceType = 2;
+  ResourceTypeMessage resourceType = 2;
   string  resourceKey = 3;
   string selfPackageId = 4;
 }
