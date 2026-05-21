@@ -7,7 +7,7 @@ enum ResourceTypeMessage{
   ComposableItem = 3;
   AbilityItem = 4;
   LootTable = 5;
-  StaticStructure = 6;
+  Structure = 6;
   Texture = 7;
   Biome = 8;
   Color = 9;
@@ -22,4 +22,5 @@ enum ResourceTypeMessage{
   LightSource = 16;
   LightMask = 17;
   TreeStructure = 18;
+  StaticStructure = 19;
 }
