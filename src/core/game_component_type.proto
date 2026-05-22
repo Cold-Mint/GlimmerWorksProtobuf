@@ -1,0 +1,31 @@
+syntax = "proto3";
+option optimize_for = LITE_RUNTIME;
+enum GameComponentTypeMessage{
+  None = 0;
+  AreaMarker = 1;
+  AutoPick = 2;
+  Blueprint = 3;
+  Camera = 4;
+  DebugDraw = 5;
+  Digging = 6;
+  Draggable = 7;
+  DroppedItem = 8;
+  FloatingText = 9;
+  GuiTransform2D = 10;
+  HotBar = 11;
+  ItemContainer = 12;
+  ItemEditor = 13;
+  ItemSlot = 14;
+  Magnet = 15;
+  Magnetic = 16;
+  Mob = 17;
+  ParallaxBackground = 18;
+  Pause = 19;
+  Player = 20;
+  RayCast2D = 21;
+  RigidBody2D = 22;
+  SpiritRenderer = 23;
+  TileLayer = 24;
+  TilePlacementForbiddenZone = 25;
+  Transform2D = 26;
+}
