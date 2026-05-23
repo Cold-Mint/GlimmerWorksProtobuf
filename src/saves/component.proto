@@ -2,6 +2,6 @@ syntax = "proto3";
 option optimize_for = LITE_RUNTIME;
 import "src/core/game_component_type.proto";
 message ComponentMessage{
-  GameComponentTypeMessage id = 1;
+  GameComponentTypeMessage type = 1;
   bytes data = 2;
 }
