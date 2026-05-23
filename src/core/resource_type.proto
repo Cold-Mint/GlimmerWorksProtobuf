@@ -1,26 +1,26 @@
 syntax = "proto3";
 option optimize_for = LITE_RUNTIME;
 enum ResourceTypeMessage{
-  None = 0;
-  String = 1;
-  Tile = 2;
-  ComposableItem = 3;
-  AbilityItem = 4;
-  LootTable = 5;
-  Structure = 6;
-  Texture = 7;
-  Biome = 8;
-  Color = 9;
-  Mob = 10;
-  Shape = 11;
-  Audio = 12;
+  RESOURCE_NONE = 0;
+  RESOURCE_STRING = 1;
+  RESOURCE_TILE = 2;
+  RESOURCE_COMPOSABLE_ITEM = 3;
+  RESOURCE_ABILITY_ITEM = 4;
+  RESOURCE_LOOT_TABLE = 5;
+  RESOURCE_STRUCTURE = 6;
+  RESOURCE_TEXTURE = 7;
+  RESOURCE_BIOME = 8;
+  RESOURCE_COLOR = 9;
+  RESOURCE_MOB = 10;
+  RESOURCE_SHAPE = 11;
+  RESOURCE_AUDIO = 12;
   //This dropped item resource type is used for serialization within the game save file. Currently, this type of resource is not supported for definition within the mod.
   //这个掉落物资源类型用作存档内序列化。模组内暂不支持定义此类型的资源。
-  DroppedItem = 13;
-  BiomeDecorator = 14;
-  FixedColor = 15;
-  LightSource = 16;
-  LightMask = 17;
-  TreeStructure = 18;
-  StaticStructure = 19;
+  RESOURCE_DROPPED_ITEM = 13;
+  RESOURCE_BIOME_DECORATOR = 14;
+  RESOURCE_FIXED_COLOR = 15;
+  RESOURCE_LIGHT_SOURCE = 16;
+  RESOURCE_LIGHT_MASK = 17;
+  RESOURCE_TREE_STRUCTURE = 18;
+  RESOURCE_STATIC_STRUCTURE = 19;
 }

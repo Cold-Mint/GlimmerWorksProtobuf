@@ -1,7 +1,7 @@
 syntax = "proto3";
 option optimize_for = LITE_RUNTIME;
 enum BodyTypeMessage {
-  STATIC = 0;
-  KINEMATIC = 1;
-  DYNAMIC = 2;
+  BODY_STATIC = 0;
+  BODY_KINEMATIC = 1;
+  BODY_DYNAMIC = 2;
 }

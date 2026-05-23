@@ -5,5 +5,5 @@ enum TileLayerTypeMessage{
   Main
   主要的瓦片层
    */
-  Main = 0;
+  TileLayer_Main = 0;
 }
