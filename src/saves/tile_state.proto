@@ -1,6 +1,7 @@
 syntax = "proto3";
 option optimize_for = LITE_RUNTIME;
 import "src/core/resource_ref.proto";
+import "src/core/vector2di.proto";
 
 /**
 Single-grid independent operation state (data not saved in the tile sharing instance)
@@ -9,4 +10,9 @@ Single-grid independent operation state (data not saved in the tile sharing inst
 message TileStateMessage {
   ResourceRefMessage resourceRef = 1;
   bool isPlayerPlaced = 2;
+  //If the offset is 0, 0, it indicates that it is in the top-left corner.
+  //如果offset为0,0,那么表示在左上角。
+  Vector2DIMessage offset = 3;
+  uint32 width = 4;
+  uint32 height = 5;
 }
