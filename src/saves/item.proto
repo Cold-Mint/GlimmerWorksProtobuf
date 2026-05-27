@@ -7,4 +7,7 @@ message ItemMessage {
   //If it is a combinable item, then a list of capabilities needs to be set up.
   //如果是可组合物品，那么需要设置能力列表。
   repeated ItemMessage abilityItemRef = 3;
+  //The remaining durability of the item that has been used up.
+  //物品已经消耗掉的耐久度。
+  uint32 UsedDurability = 4;
 }
