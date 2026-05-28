@@ -1,0 +1,8 @@
+syntax = "proto3";
+option optimize_for = LITE_RUNTIME;
+enum AllocStrategyTypeMessage {
+  ALLOC_STRATEGY_FORWARD = 0;
+  ALLOC_STRATEGY_BACKWARD = 1;
+  ALLOC_STRATEGY_BALANCE = 2;
+  ALLOC_STRATEGY_RANDOM = 3;
+}

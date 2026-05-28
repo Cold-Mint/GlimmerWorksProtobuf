@@ -1,6 +1,7 @@
 syntax = "proto3";
 option optimize_for = LITE_RUNTIME;
 import "src/core/resource_ref.proto";
+import "src/core/alloc_strategy_type.proto";
 message ItemMessage {
   ResourceRefMessage itemResourceRef = 1;
   uint64 amount = 2;
@@ -10,4 +11,7 @@ message ItemMessage {
   //The remaining durability of the item that has been used up.
   //物品已经消耗掉的耐久度。
   uint32 UsedDurability = 4;
+  //Durability consumption strategy.
+  //耐久消耗策略。
+  AllocStrategyTypeMessage durabilityStrategy = 5;
 }
