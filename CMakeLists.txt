@@ -38,10 +38,23 @@ if (CMAKE_CROSSCOMPILING)
 
 else ()
     # CMAKE_BINARY_DIR points to the root project's build directory
-    set(PROTOC_EXECUTABLE "${CMAKE_BINARY_DIR}/_deps/protobuf-build/protoc")
+    # For multi-config generators (like Visual Studio), protoc is in bin/<Config>/ subdirectory
+    # For single-config generators (like Ninja), protoc is in _deps/protobuf-build/
     if(WIN32)
-        string(APPEND PROTOC_EXECUTABLE ".exe")
+        set(PROTOC_NAME "protoc.exe")
+    else()
+        set(PROTOC_NAME "protoc")
     endif()
+    
+    # Try multi-config path first (for Visual Studio)
+    set(PROTOC_EXECUTABLE "${CMAKE_BINARY_DIR}/bin/${CMAKE_BUILD_TYPE}/${PROTOC_NAME}")
+    if(NOT EXISTS "${PROTOC_EXECUTABLE}")
+        # Fall back to single-config path
+        set(PROTOC_EXECUTABLE "${CMAKE_BINARY_DIR}/_deps/protobuf-build/${PROTOC_NAME}")
+    endif()
+    
+    # Get absolute path
+    get_filename_component(PROTOC_EXECUTABLE "${PROTOC_EXECUTABLE}" ABSOLUTE)
 endif ()
 message(STATUS "PROTOC_EXECUTABLE = ${PROTOC_EXECUTABLE}")
 
