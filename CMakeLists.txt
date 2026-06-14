@@ -75,11 +75,16 @@ foreach(_proto ${PROTO_FILES})
         "${PROTO_OUTPUT_DIR}/${_rel_dir}/${_basename}.pb.h"
     )
     list(APPEND _generated_srcs_all ${_generated_srcs})
+
+    # Create a response file to avoid Windows command line length limit
+    # 使用响应文件避免 Windows 命令行长度限制
+    set(_args_file "${CMAKE_CURRENT_BINARY_DIR}/${_basename}_args.txt")
+    file(WRITE ${_args_file} "--cpp_out=${PROTO_OUTPUT_DIR}\n-I${CMAKE_CURRENT_SOURCE_DIR}\n${_abs_file}\n")
+
     add_custom_command(
         OUTPUT ${_generated_srcs}
-        COMMAND ${PROTOC_EXECUTABLE}
-        ARGS --cpp_out=${PROTO_OUTPUT_DIR} -I${CMAKE_CURRENT_SOURCE_DIR} ${_abs_file}
-        DEPENDS ${_abs_file} protobuf::protoc
+        COMMAND ${PROTOC_EXECUTABLE} "@${_args_file}"
+        DEPENDS ${_abs_file} protobuf::protoc ${_args_file}
         COMMENT "Running C++ protocol buffer compiler on ${_proto}"
         VERBATIM
     )
