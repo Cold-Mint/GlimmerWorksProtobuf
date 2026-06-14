@@ -25,8 +25,6 @@ set(PROTOC_EXECUTABLE_PATH "" CACHE FILEPATH
 
 set(PROTOC_EXECUTABLE "")
 if (CMAKE_CROSSCOMPILING)
-    # If it is a cross-compilation, then the user must specify the protoc directory.
-    # 如果是交叉编译，那么必须得由用户指定protoc
     message(STATUS "Cross-compilation mode Host protoc must be specified manually.")
     if (PROTOC_EXECUTABLE_PATH STREQUAL "")
         message(FATAL_ERROR
@@ -35,26 +33,8 @@ if (CMAKE_CROSSCOMPILING)
         )
     endif ()
     set(PROTOC_EXECUTABLE ${PROTOC_EXECUTABLE_PATH})
-
 else ()
-    # CMAKE_BINARY_DIR points to the root project's build directory
-    # For multi-config generators (like Visual Studio), protoc is in bin/<Config>/ subdirectory
-    # For single-config generators (like Ninja), protoc is in _deps/protobuf-build/
-    if(WIN32)
-        set(PROTOC_NAME "protoc.exe")
-    else()
-        set(PROTOC_NAME "protoc")
-    endif()
-    
-    # Try multi-config path first (for Visual Studio)
-    set(PROTOC_EXECUTABLE "${CMAKE_BINARY_DIR}/bin/${CMAKE_BUILD_TYPE}/${PROTOC_NAME}")
-    if(NOT EXISTS "${PROTOC_EXECUTABLE}")
-        # Fall back to single-config path
-        set(PROTOC_EXECUTABLE "${CMAKE_BINARY_DIR}/_deps/protobuf-build/${PROTOC_NAME}")
-    endif()
-    
-    # Get absolute path
-    get_filename_component(PROTOC_EXECUTABLE "${PROTOC_EXECUTABLE}" ABSOLUTE)
+    set(PROTOC_EXECUTABLE "$<TARGET_FILE:protobuf::protoc>")
 endif ()
 message(STATUS "PROTOC_EXECUTABLE = ${PROTOC_EXECUTABLE}")
 
