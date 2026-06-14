@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.31.6)
 project(GlimmerWorksProto)
-include("../../../versions.cmake")
+include("${CMAKE_SOURCE_DIR}/versions.cmake")
 include(FetchContent)
 FetchContent_Declare(
         protobuf
@@ -15,6 +15,8 @@ file(GLOB_RECURSE PROTO_FILES
         "${CMAKE_CURRENT_SOURCE_DIR}/src/*.proto"
 )
 
+# CMAKE_SOURCE_DIR and CMAKE_BINARY_DIR always point to the root project directories
+# regardless of which subproject is currently being configured
 set(PROTO_OUTPUT_DIR "${CMAKE_BINARY_DIR}/_deps/glimmerworksprotobuf-build/cpp")
 
 set(PROTOC_EXECUTABLE_PATH "" CACHE FILEPATH
@@ -35,7 +37,11 @@ if (CMAKE_CROSSCOMPILING)
     set(PROTOC_EXECUTABLE ${PROTOC_EXECUTABLE_PATH})
 
 else ()
+    # CMAKE_BINARY_DIR points to the root project's build directory
     set(PROTOC_EXECUTABLE "${CMAKE_BINARY_DIR}/_deps/protobuf-build/protoc")
+    if(WIN32)
+        string(APPEND PROTOC_EXECUTABLE ".exe")
+    endif()
 endif ()
 message(STATUS "PROTOC_EXECUTABLE = ${PROTOC_EXECUTABLE}")
 
