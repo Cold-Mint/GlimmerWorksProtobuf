@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 4.2.2)
+cmake_minimum_required(VERSION 3.31.6)
 project(GlimmerWorksProto)
 
 find_package(Protobuf REQUIRED)
