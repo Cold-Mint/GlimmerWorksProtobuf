@@ -59,15 +59,33 @@ endif ()
 message(STATUS "PROTOC_EXECUTABLE = ${PROTOC_EXECUTABLE}")
 
 add_library(GlimmerWorksProto)
-include("${CMAKE_BINARY_DIR}/_deps/protobuf-src/cmake/protobuf-generate.cmake")
-protobuf_generate(
-        TARGET GlimmerWorksProto
-        LANGUAGE cpp
-        PROTOS ${PROTO_FILES}
-        IMPORT_DIRS "${CMAKE_CURRENT_SOURCE_DIR}"
-        PROTOC_OUT_DIR ${PROTO_OUTPUT_DIR}
-        PROTOC_EXE ${PROTOC_EXECUTABLE}
-)
+
+# Use custom command to generate protobuf source files
+# 使用自定义命令生成 protobuf 源文件
+set(_generated_srcs_all)
+foreach(_proto ${PROTO_FILES})
+    get_filename_component(_abs_file ${_proto} ABSOLUTE)
+    get_filename_component(_abs_dir ${_abs_file} DIRECTORY)
+    get_filename_component(_file_full_name ${_proto} NAME)
+    string(FIND "${_file_full_name}" "." _file_last_ext_pos REVERSE)
+    string(SUBSTRING "${_file_full_name}" 0 ${_file_last_ext_pos} _basename)
+    file(RELATIVE_PATH _rel_dir "${CMAKE_CURRENT_SOURCE_DIR}/src" ${_abs_dir})
+    set(_generated_srcs
+        "${PROTO_OUTPUT_DIR}/${_rel_dir}/${_basename}.pb.cc"
+        "${PROTO_OUTPUT_DIR}/${_rel_dir}/${_basename}.pb.h"
+    )
+    list(APPEND _generated_srcs_all ${_generated_srcs})
+    add_custom_command(
+        OUTPUT ${_generated_srcs}
+        COMMAND ${PROTOC_EXECUTABLE}
+        ARGS --cpp_out=${PROTO_OUTPUT_DIR} -I${CMAKE_CURRENT_SOURCE_DIR} ${_abs_file}
+        DEPENDS ${_abs_file} protobuf::protoc
+        COMMENT "Running C++ protocol buffer compiler on ${_proto}"
+        VERBATIM
+    )
+endforeach()
+set_source_files_properties(${_generated_srcs_all} PROPERTIES GENERATED TRUE)
+target_sources(GlimmerWorksProto PRIVATE ${_generated_srcs_all})
 
 add_dependencies(GlimmerWorksProto protobuf::protoc)
 
