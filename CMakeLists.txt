@@ -42,7 +42,7 @@ else ()
 endif ()
 message(STATUS "PROTOC_EXECUTABLE = ${PROTOC_EXECUTABLE}")
 
-add_library(GlimmerWorksProto)
+add_library(GlimmerWorksProto STATIC)
 include("${CMAKE_BINARY_DIR}/_deps/protobuf-src/cmake/protobuf-generate.cmake")
 protobuf_generate(
         TARGET GlimmerWorksProto
