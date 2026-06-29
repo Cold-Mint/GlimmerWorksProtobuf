@@ -9,5 +9,5 @@ enum PlaceSourceMessage {
   PLACE_SOURCE_CONSOLE = 1;
   //Placed by the players.
   //由玩家放置。
-  PLACE_PLAYER = 2;
+  PLACE_SOURCE_PLAYER = 2;
 }
