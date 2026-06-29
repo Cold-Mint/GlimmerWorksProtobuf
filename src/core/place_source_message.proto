@@ -1,0 +1,13 @@
+syntax = "proto3";
+option optimize_for = LITE_RUNTIME;
+enum PlaceSourceMessage {
+  //Placed by the World Generator.
+  //由世界生成器放置。
+  PLACE_SOURCE_WORLD_GEN = 0;
+  //Place it on the console.
+  //由控制台放置。
+  PLACE_SOURCE_CONSOLE = 1;
+  //Placed by the players.
+  //由玩家放置。
+  PLACE_PLAYER = 2;
+}
