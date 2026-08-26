@@ -1,0 +1,14 @@
+syntax = "proto3";
+option optimize_for = LITE_RUNTIME;
+import "src/core/resource_ref.proto";
+
+message ShaderCacheMessage {
+  //源着色器修改时间
+  int64 sourceMtime = 1;
+  //源文件blake3哈希
+  bytes blake3Hash = 2;
+  //Shader资源引用
+  ResourceRefMessage ShaderResourceRef = 3;
+  //SPIR‑V完整二进制全部塞这里
+  bytes SPIRVBinary = 4;
+}
