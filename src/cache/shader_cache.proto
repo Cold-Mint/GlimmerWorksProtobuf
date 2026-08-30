@@ -11,4 +11,8 @@ message ShaderCacheMessage {
   ResourceRefMessage ShaderResourceRef = 3;
   //SPIR‑V完整二进制全部塞这里
   bytes SPIRVBinary = 4;
+  //采样器数量
+  uint32 numSamplers = 5;
+  //UniformBuffers数量
+  uint32 numUniformBuffers = 6;
 }
