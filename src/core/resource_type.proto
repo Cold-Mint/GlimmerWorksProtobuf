@@ -26,11 +26,11 @@ enum ResourceTypeMessage{
   RESOURCE_MATERIAL_ITEM = 20;
   RESOURCE_RML_PATH = 21;
   RESOURCE_STRUCTURE_PLACEMENT_CONDITIONS = 22;
-  //Vertex Shader SPIR-V
-  //顶点着色器 SPIR‑V
+  //Vertex Shader
+  //顶点着色器
   RESOURCE_SHADER_VERTEX = 23;
-  //Fragment (Subsection) Shader SPIR-V
-  //片元(片段)着色器 SPIR‑V
+  //Fragment (Subsection) Shader
+  //片元(片段)着色器
   RESOURCE_SHADER_FRAGMENT = 24;
   RESOURCE_PIPELINE = 25;
 }
