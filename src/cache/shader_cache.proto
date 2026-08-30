@@ -6,7 +6,7 @@ message ShaderCacheMessage {
   //源着色器修改时间
   int64 sourceMtime = 1;
   //源文件blake3哈希
-  string blake3Hash = 2;
+  bytes blake3Hash = 2;
   //Shader资源引用
   ResourceRefMessage ShaderResourceRef = 3;
   //SPIR‑V完整二进制全部塞这里
