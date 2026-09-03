@@ -33,4 +33,5 @@ enum ResourceTypeMessage{
   //片元(片段)着色器
   RESOURCE_SHADER_FRAGMENT = 24;
   RESOURCE_PIPELINE = 25;
+  RESOURCE_SAMPLER = 26;
 }
