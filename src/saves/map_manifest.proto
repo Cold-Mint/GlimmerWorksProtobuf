@@ -1,4 +1,5 @@
 syntax = "proto3";
+import "resource_ref.proto";
 option optimize_for = LITE_RUNTIME;
 message MapManifestMessage {
   string name = 1;
@@ -10,4 +11,8 @@ message MapManifestMessage {
   int64 totalPlayTime = 7;
   uint32 entityIDIndex = 8;
   bool allowCheats = 9;
+  ResourceRefMessage currentDimension = 10;
+  //The tick count of this archived experience.
+  //此存档经历的tick数。
+  uint64 globalTick = 11;
 };

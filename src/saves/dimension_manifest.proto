@@ -1,0 +1,10 @@
+syntax = "proto3";
+option optimize_for = LITE_RUNTIME;
+import "src/core/resource_ref.proto";
+message DimensionManifestMessage {
+  ResourceRefMessage dimension = 1;
+  ResourceRefMessage weather = 2;
+  //The number of ticks indicating the end of the weather. If this number has been reached, then the weather should come to an end.
+  //天气结束的tick数，如果过了这个数，那么天气应该结束。
+  uint64 weatherEndGlobalTick = 3;
+};
