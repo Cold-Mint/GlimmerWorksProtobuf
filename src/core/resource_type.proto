@@ -34,4 +34,7 @@ enum ResourceTypeMessage{
   RESOURCE_SHADER_FRAGMENT = 24;
   RESOURCE_PIPELINE = 25;
   RESOURCE_SAMPLER = 26;
+  //Uniform block description (CPU-side layout/source declaration)
+  //Uniform 块描述（CPU 侧布局/值来源声明）
+  RESOURCE_UNIFORM_BLOCK = 27;
 }
