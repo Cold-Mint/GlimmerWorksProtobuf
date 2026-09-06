@@ -1,5 +1,5 @@
 syntax = "proto3";
-import "resource_ref.proto";
+import "src/core/resource_ref.proto";
 option optimize_for = LITE_RUNTIME;
 message MapManifestMessage {
   string name = 1;
