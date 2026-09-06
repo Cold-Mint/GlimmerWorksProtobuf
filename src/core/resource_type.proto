@@ -40,14 +40,4 @@ enum ResourceTypeMessage{
   //Dimension
   //维度
   RESOURCE_DIMENSION = 28;
-  //Weather
-  //天气
-  RESOURCE_WEATHER = 29;
-  RESOURCE_WEATHER_CONDITION = 30;
-  //Sky environment(A collection of sky elements)
-  //天空环境（天空元素的集合）
-  RESOURCE_SKY_ENVIRONMENT = 31;
-  //Elements of the Sky
-  //天空元素
-  RESOURCE_SKY_ELEMENT = 32;
 }

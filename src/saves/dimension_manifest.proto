@@ -1,10 +1,16 @@
 syntax = "proto3";
 option optimize_for = LITE_RUNTIME;
 import "src/core/resource_ref.proto";
+import "src/saves/transform2d.proto";
 message DimensionManifestMessage {
   ResourceRefMessage dimension = 1;
-  ResourceRefMessage weather = 2;
-  //The number of ticks indicating the end of the weather. If this number has been reached, then the weather should come to an end.
-  //天气结束的tick数，如果过了这个数，那么天气应该结束。
-  uint64 weatherEndGlobalTick = 3;
+  //The game tick when the player leaves this dimension, used for time compensation during cross-dimension transitions
+  //玩家离开该维度时的游戏tick，用于跨维度切换时间补偿
+  uint64 leaveTick = 2;
+  //The total number of ticks accumulated by the player within this dimension is used to calculate the day and night duration and the world time after restoring the saved game.
+  //玩家在该维度内累计经历的tick总数，用于恢复存档后推算昼夜天数与世界时间
+  uint64 accumulatedTick = 3;
+  //The coordinate transformation information when the player leaves this dimension, and when re-entering the dimension, the player will be restored to this position.
+  //玩家离开该维度时的坐标变换信息，重新进入维度时将玩家恢复到此位置
+  Transform2dMessage lastTransform = 4;
 };

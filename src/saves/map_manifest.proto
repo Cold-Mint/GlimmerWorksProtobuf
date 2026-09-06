@@ -8,11 +8,10 @@ message MapManifestMessage {
   int32 seed = 4;
   int64 createTime = 5;
   int64 lastPlayedTime = 6;
-  int64 totalPlayTime = 7;
+  //The tick count of this archived experience.
+  //此存档经历的tick数。
+  uint64 globalTick = 7;
   uint32 entityIDIndex = 8;
   bool allowCheats = 9;
   ResourceRefMessage currentDimension = 10;
-  //The tick count of this archived experience.
-  //此存档经历的tick数。
-  uint64 globalTick = 11;
 };
