@@ -1,0 +1,14 @@
+syntax = "proto3";
+option optimize_for = LITE_RUNTIME;
+enum PlayerPermissionLevelMessage{
+  /**
+   * Player's permission is that of an administrator (allowing cheating)
+   * 玩家权限为管理员（可作弊）
+   */
+  PLAYER_PERMISSION_LEVEL_ADMIN = 0;
+  /**
+   * Ordinary player privileges.
+   * 普通玩家权限。
+   */
+  PLAYER_PERMISSION_LEVEL_NORMAL = 1;
+}

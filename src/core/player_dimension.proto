@@ -1,0 +1,9 @@
+syntax = "proto3";
+option optimize_for = LITE_RUNTIME;
+import "src/saves/entity_item.proto";
+import "src/saves/transform2d.proto";
+message PlayerDimensionMessage{
+  //The coordinate transformation information when the player leaves this dimension, and when re-entering the dimension, the player will be restored to this position.
+  //玩家离开该维度时的坐标变换信息，重新进入维度时将玩家恢复到此位置
+  Transform2dMessage lastTransform = 1;
+}

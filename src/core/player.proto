@@ -1,6 +1,13 @@
 syntax = "proto3";
 option optimize_for = LITE_RUNTIME;
 import "src/saves/entity_item.proto";
+import "src/core/player_dimension.proto";
+import "src/core/player_permission_level.proto";
 message PlayerMessage{
   EntityItemMessage entity = 1;
+  //timestamp
+  //时间戳
+  int64 lastPlayedTime = 2;
+  PlayerPermissionLevelMessage permissionLevel = 3;
+  repeated PlayerDimensionMessage visitedDimensions = 4;
 }
