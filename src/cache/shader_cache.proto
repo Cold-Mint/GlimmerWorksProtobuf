@@ -1,5 +1,6 @@
 syntax = "proto3";
 option optimize_for = LITE_RUNTIME;
+import "src/cache/uniform_block_binding.proto";
 import "src/core/resource_ref.proto";
 
 message ShaderCacheMessage {
@@ -15,4 +16,7 @@ message ShaderCacheMessage {
   uint32 numSamplers = 5;
   //UniformBuffers数量
   uint32 numUniformBuffers = 6;
+  //Uniform块名称与binding号列表
+  repeated UniformBlockBindingMessage uniformBlockBindings = 7;
+  uint32 gameVersionNumber = 8;
 }

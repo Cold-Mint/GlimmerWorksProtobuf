@@ -1,0 +1,8 @@
+syntax = "proto3";
+option optimize_for = LITE_RUNTIME;
+message UniformBlockBindingMessage {
+  //Uniform块名称
+  string name = 1;
+  //binding号
+  uint32 binding = 2;
+}
