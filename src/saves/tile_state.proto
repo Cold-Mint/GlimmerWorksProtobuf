@@ -18,8 +18,14 @@ message TileStateMessage {
   uint32 height = 5;
   //瓦片被放置下去的tick时间戳
   uint64 tilePlacedTick = 6;
-  //上一次成功成熟的tick时间戳
-  uint64 lastMatureTick = 7;
+  //本次开始生长的tick时间戳（当生长条件满足时开始记录）
+  uint64 tileGrowthStartTick = 7;
   //已经成功成熟的次数
-  uint32 matureCount = 8; 
+  uint32 matureCount = 8;
+  //长大所需的tick数（实例创建时的随机时长growthMinTicks到growthMaxTicks）
+  uint64 tileGrowthRequiredTick = 9;
+  //已经累积的tick数进度
+  uint64 tileGrowthAccumulatedTick = 10;
+  //瓦片生长上一轮校验：是否满足生长条件，存入存档
+  bool tileGrowthConditionOk = 11;
 }
