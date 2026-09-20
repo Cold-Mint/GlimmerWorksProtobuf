@@ -27,5 +27,5 @@ message TileStateMessage {
   //已经累积的tick数进度
   uint64 tileGrowthAccumulatedTick = 10;
   //瓦片生长上一轮校验：是否满足生长条件，存入存档
-  bool tileGrowthConditionOk = 11;
+  bool tileGrowthConditionsMet = 11;
 }
