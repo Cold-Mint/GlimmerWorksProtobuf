@@ -40,4 +40,7 @@ enum ResourceTypeMessage{
   //Dimension
   //维度
   RESOURCE_DIMENSION = 28;
+  //GrowthCondition
+  //生长条件
+  RESOURCE_GROWTH_CONDITION = 29;
 }
