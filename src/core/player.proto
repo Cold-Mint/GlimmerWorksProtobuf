@@ -11,5 +11,5 @@ message PlayerMessage{
   int64 lastPlayedTime = 2;
   PlayerPermissionLevelMessage permissionLevel = 3;
   repeated PlayerDimensionMessage visitedDimensions = 4;
-  ResourceRefMessage currentDimension = 5;
+  uint32 currentDimensionIndex = 5;
 }
