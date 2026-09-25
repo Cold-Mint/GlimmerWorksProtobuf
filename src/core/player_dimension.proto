@@ -8,4 +8,7 @@ message PlayerDimensionMessage{
   //玩家离开该维度时的坐标变换信息，重新进入维度时将玩家恢复到此位置
   Transform2dMessage lastTransform = 1;
   ResourceRefMessage dimension = 2;
+  //Should the game automatically set a starting point for the player?
+  //是否需要让游戏自动为玩家设置一个出生点。
+  bool needAutomaticSpawn = 3;
 }
