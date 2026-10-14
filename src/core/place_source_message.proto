@@ -13,4 +13,7 @@ enum PlaceSourceMessage {
   //Placed by growing crops.
   //由作物长大放置。
   PLACE_SOURCE_CROP_GROWTH = 3;
+  //Placed as a result of breaking a tile (usually air).
+  //因破坏方块而放置（通常为空气）。
+  PLACE_SOURCE_BREAK = 4;
 }
