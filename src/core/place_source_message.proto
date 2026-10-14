@@ -10,4 +10,7 @@ enum PlaceSourceMessage {
   //Placed by the players.
   //由玩家放置。
   PLACE_SOURCE_PLAYER = 2;
+  //Placed by growing crops.
+  //由作物长大放置。
+  PLACE_SOURCE_CROP_GROWTH = 3;
 }
