@@ -28,4 +28,8 @@ message TileStateMessage {
   uint64 tileGrowthAccumulatedTick = 10;
   //瓦片生长上一轮校验：是否满足生长条件，存入存档
   bool tileGrowthConditionsMet = 11;
+  //附着方向：0无 1上 2右 3下 4左 5背景(下层)
+  uint32 attachmentDirection = 12;
+  //附着点偏移（相对瓦片原点，指向支撑瓦片；方向1-4为单位向量，方向5与无附着为0,0）
+  Vector2DIMessage attachmentOffset = 13;
 }
