@@ -16,4 +16,10 @@ enum PlaceSourceMessage {
   //Placed as a result of breaking a tile (usually air).
   //因破坏方块而放置（通常为空气）。
   PLACE_SOURCE_BREAK = 4;
+  //Placed by the tile's primary action.
+  //由瓦片的主活动放置。
+  PLACE_SOURCE_TILE_PRIMARY_ACTION = 5;
+  //Placed by the tile's secondary action.
+  //由瓦片的副活动放置。
+  PLACE_SOURCE_TILE_SECONDARY_ACTION = 6;
 }
