@@ -3,7 +3,7 @@ option optimize_for = LITE_RUNTIME;
 import "src/core/resource_ref.proto";
 import "src/core/vector2di.proto";
 import "src/core/place_source_message.proto";
-import "src/saves/item_container.proto"
+import "src/saves/item_container.proto";
 
 /**
 Single-grid independent operation state (data not saved in the tile sharing instance)
