@@ -3,6 +3,7 @@ option optimize_for = LITE_RUNTIME;
 import "src/core/resource_ref.proto";
 import "src/core/vector2di.proto";
 import "src/core/place_source_message.proto";
+import "src/saves/item_container.proto"
 
 /**
 Single-grid independent operation state (data not saved in the tile sharing instance)
@@ -32,4 +33,6 @@ message TileStateMessage {
   uint32 attachmentDirection = 12;
   //附着点偏移（相对瓦片原点，指向支撑瓦片；方向1-4为单位向量，方向5与无附着为0,0）
   Vector2DIMessage attachmentOffset = 13;
+  //存储方块的物品容器（含容量与内容物），仅当瓦片为存储方块时使用。
+  ItemContainerMessage itemContainer = 14;
 }
