@@ -35,4 +35,6 @@ message TileStateMessage {
   Vector2DIMessage attachmentOffset = 13;
   //存储方块的物品容器（含容量与内容物），仅当瓦片为存储方块时使用。
   ItemContainerMessage itemContainer = 14;
+  //瓦片实例的uuid（战利品箱首次打开时用于关联玩家快照）
+  string uuid = 15;
 }

@@ -4,6 +4,7 @@ import "src/saves/entity_item.proto";
 import "src/core/player_dimension.proto";
 import "src/core/player_permission_level.proto";
 import "src/core/resource_ref.proto";
+import "src/core/loot_box_snapshot.proto";
 message PlayerMessage{
   EntityItemMessage entity = 1;
   //timestamp
@@ -12,4 +13,7 @@ message PlayerMessage{
   PlayerPermissionLevelMessage permissionLevel = 3;
   repeated PlayerDimensionMessage visitedDimensions = 4;
   uint32 currentDimensionIndex = 5;
+  //The loot boxes that the player has opened.(key is the UUID of the box, value is the snapshot of the loot)
+  //玩家打开过的战利品箱。(key为箱子uuid，value为战利品快照)
+  map<string, LootBoxSnapshotMessage> openedLootBoxSnapshot = 6;
 }

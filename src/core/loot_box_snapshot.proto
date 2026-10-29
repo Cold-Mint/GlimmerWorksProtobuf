@@ -1,0 +1,11 @@
+syntax = "proto3";
+option optimize_for = LITE_RUNTIME;
+import "src/saves/item.proto";
+
+// 战利品箱的战利品快照（每个玩家、每个箱子各一份）
+// The loot snapshot of a loot box (one per player per box).
+message LootBoxSnapshotMessage {
+  // 尚未领取的战利品（掷骰结果，逐件领取后移除）
+  // The not-yet-claimed loot (roll result, removed as the player claims each item).
+  repeated ItemMessage items = 1;
+}
