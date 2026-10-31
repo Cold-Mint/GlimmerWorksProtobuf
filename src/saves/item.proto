@@ -14,5 +14,4 @@ message ItemMessage {
   //Durability consumption strategy.
   //耐久消耗策略。
   AllocStrategyTypeMessage durabilityStrategy = 5;
-  bool locked = 6;
 }
